@@ -65,6 +65,8 @@ define selinux::module(
     /^puppet:\/\/\/modules\/.*.te$/: {
       fail('Invalid source parameter, expecting a directory')
     }
+    # Allow sub-dirs
+    /^puppet:\/\/\/modules\/[^\/]+\/[^\/]+\/[^\/]+\/?$/: { }
     /^puppet:\/\/\/modules\/[^\/]+\/[^\/]+\/?$/: { }
     /^file:\/\/\/.*$/: { }
     default: {
